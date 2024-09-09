@@ -18,13 +18,7 @@ PRODUCT_SOONG_NAMESPACES += \
 TARGET_MEDIA_COMPONENT_VARIANT := media
 
 # Inherit configuration from the HAL.
-ifeq ($(call is-board-platform-in-list, $(5_10_FAMILY)), true)
-    $(call inherit-product-if-exists, hardware/qcom-caf/sm8450/media/product.mk)
-else ifeq ($(call is-board-platform-in-list, $(5_15_FAMILY)), true)
-    $(call inherit-product-if-exists, hardware/qcom-caf/sm8550/media/product.mk)
-else ifeq ($(call is-board-platform-in-list, $(6_1_FAMILY)), true)
-    $(call inherit-product-if-exists, hardware/qcom-caf/sm8650/media/product.mk)
-endif
+$(call inherit-product-if-exists, hardware/qcom-caf/$(QCOM_HARDWARE_VARIANT)/media/product.mk)
 
 # Enable 64-bit mediaserver
 PRODUCT_VENDOR_PROPERTIES += \

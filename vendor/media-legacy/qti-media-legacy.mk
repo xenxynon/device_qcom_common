@@ -27,11 +27,7 @@ PRODUCT_ODM_PROPERTIES += \
 endif
 
 # Inherit configuration from the HAL.
-ifeq ($(call is-board-platform-in-list, $(4_14_FAMILY)), true)
-    $(call inherit-product-if-exists, hardware/qcom-caf/sm8150/media/product.mk)
-else ifeq ($(call is-board-platform-in-list, $(4_19_FAMILY)), true)
-    $(call inherit-product-if-exists, hardware/qcom-caf/sm8250/media/product.mk)
-endif
+$(call inherit-product-if-exists, hardware/qcom-caf/$(QCOM_HARDWARE_VARIANT)/media/product.mk)
 
 # Manifest
 ifneq ($(TARGET_USES_CUSTOM_C2_MANIFEST), true)
