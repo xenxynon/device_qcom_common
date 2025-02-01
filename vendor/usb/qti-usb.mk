@@ -22,9 +22,7 @@ ifeq (,$(filter 4.4 4.9 4.14 4.19, $(TARGET_KERNEL_VERSION)))
 TARGET_HAS_DIAG_ROUTER := true
 endif
 
-ifneq (,$(filter 4.4 4.9 4.14, $(TARGET_KERNEL_VERSION)))
-PRODUCT_PACKAGES += android.hardware.usb@1.0-service
-endif
+PRODUCT_PACKAGES += android.hardware.usb-service.qti
 
 ifneq ($(TARGET_KERNEL_VERSION),$(filter $(TARGET_KERNEL_VERSION),3.18))
 PRODUCT_HAS_GADGET_HAL := true
